@@ -12,17 +12,15 @@ use Isotope\Model\Product;
 
 class CustomizeSearchListener
 {
-    public function onCustomizeSearch($arrPages, $strKeywords, $strQueryType, $blnFuzzy)
+    public function onCustomizeSearch($arrPages, &$strKeywords, $strQueryType, $blnFuzzy)
     {
-        echo "Hey Yo...";
-        die();
+        $strKeywords .= "CHANGE MADE";
     }
 
 
     public function generatePage(&$objPageModel, $objLayout, &$objPage)
     {
-        echo "Hey Yo!";
-        die();
+
         if($objPageModel->id == 249)
         {
            
