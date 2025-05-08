@@ -15,8 +15,7 @@ class CustomizeSearch
     public function customizeSearch($pageIds, $keywords, $queryType, $fuzzy, $module)
     {
         echo "Hey Yo...";
-      die();
-        
+        die();
         
     }
 }
