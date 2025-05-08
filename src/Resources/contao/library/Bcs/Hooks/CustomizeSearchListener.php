@@ -16,6 +16,18 @@ class CustomizeSearchListener
     {
         echo "Hey Yo...";
         die();
-        
     }
+
+
+    public function generatePage(&$objPageModel, $objLayout, &$objPage)
+    {
+        echo "Hey Yo!";
+        die();
+        if($objPageModel->id == 249)
+        {
+           
+        }
+    }
+
+    
 }
