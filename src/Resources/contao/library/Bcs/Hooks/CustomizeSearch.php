@@ -10,7 +10,7 @@ use Isotope\Interfaces\IsotopeProduct;
 use Isotope\Isotope;
 use Isotope\Model\Product;
 
-class Hooks
+class CustomizeSearch
 {
     public function customizeSearch($pageIds, $keywords, $queryType, $fuzzy, $module)
     {
