@@ -9,7 +9,4 @@
  */
 
 /** Hooks */
-$GLOBALS['TL_HOOKS']['generatePage'][] 		 = array('Bcs\Hooks', 'generatePage');
-
-/* Models */
-//$GLOBALS['TL_MODELS']['tl_salsify_request']         = 'Bcs\Model\SalsifyRequest';
+$GLOBALS['TL_HOOKS']['customizeSearch'][] 		 = array('Bcs\Hooks\CustomizeSearch', 'customizeSearch');
