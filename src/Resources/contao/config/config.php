@@ -9,4 +9,4 @@
  */
 
 /** Hooks */
-$GLOBALS['TL_HOOKS']['customizeSearch'][] 		 = array('Bcs\Hoasdoks\CustomizeSearch', 'customizeSearch');
+$GLOBALS['TL_HOOKS']['customizeSearch'][] 		 = array('Bcs\Hooks\CustomizeSearchListener', 'onCustomizeSearch');
