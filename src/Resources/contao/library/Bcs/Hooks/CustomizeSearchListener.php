@@ -10,9 +10,9 @@ use Isotope\Interfaces\IsotopeProduct;
 use Isotope\Isotope;
 use Isotope\Model\Product;
 
-class CustomizeSearch
+class CustomizeSearchListener
 {
-    public function customizeSearch($pageIds, $keywords, $queryType, $fuzzy, $module)
+    public function onCustomizeSearch($arrPages, $strKeywords, $strQueryType, $blnFuzzy)
     {
         echo "Hey Yo...";
         die();
