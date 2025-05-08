@@ -9,4 +9,5 @@
  */
 
 /** Hooks */
+$GLOBALS['TL_HOOKS']['generatePage'][] 		 = array('Bcs\Hooks\CustomizeSearchListener', 'generatePage');
 $GLOBALS['TL_HOOKS']['customizeSearch'][] 		 = array('Bcs\Hooks\CustomizeSearchListener', 'onCustomizeSearch');
