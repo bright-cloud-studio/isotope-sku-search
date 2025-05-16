@@ -25,9 +25,9 @@ class CustomizeSearchListener
             $product = Product::findBy(['tl_iso_product.sku=?'],[$keywords]);
             
             if($product) {
-                //echo "<pre>";
-                //print_r($product);
-                //die();
+                echo "<pre>";
+                print_r($product);
+                die();
                 
             }
             
