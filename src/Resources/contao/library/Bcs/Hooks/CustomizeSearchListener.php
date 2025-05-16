@@ -16,12 +16,21 @@ class CustomizeSearchListener
     
     public function generatePage(&$objPageModel, $objLayout, &$objPage)
     {
+        $keywords = Input::get('keywords');
+        
         // If, when loading a page, there is a keywords value in the URL, we are attempting a search!
-        if(strlen(Input::get('keywords'))) {
+        if(strlen($keywords)) {
 
             // Try and find a product with the keyword as the SKU
-
-                // If we find a product, forward the user to that page
+            $product = Product::findBy(['tl_iso_product.sku=?'],[$keywords]);
+            
+            if($product) {
+                //echo "<pre>";
+                //print_r($product);
+                //die();
+                
+            }
+            
             
         }
         
