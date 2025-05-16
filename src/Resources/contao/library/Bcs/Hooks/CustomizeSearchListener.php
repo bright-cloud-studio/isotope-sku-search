@@ -2,6 +2,7 @@
 
 namespace Bcs\Hooks;
 
+use Contao\Config;
 use Contao\Controller;
 use Contao\Database;
 use Contao\Date;
@@ -31,14 +32,38 @@ class CustomizeSearchListener
             // If we found a product
             if($product) {
                 
-                // Use the Isotope functions to get our generated URL
-                $arrConfig = $this->getProductConfig($product);
-                $href = $product->generateUrl($arrConfig['jumpTo'], true);
+                $product_to_seek = Config::get('product_to_seek');
                 
-                // Forward the user to our new URL
-                header("Location: " . $href);
-                // kill this process so the forward can continue in its' place
-                die();
+                if($product_to_seek == 'variant') {
+                    
+                    // Use the Isotope functions to get our generated URL
+                    $arrConfig = $this->getProductConfig($product);
+                    $href = $product->generateUrl($arrConfig['jumpTo'], true);
+                    
+                    // Forward the user to our new URL
+                    header("Location: " . $href);
+                    // kill this process so the forward can continue in its' place
+                    die();
+                    
+                } else if($product_to_seek == 'parent') {
+                    
+                    // Try and find a product where $keyword is that product's SKU
+                    $parent = Product::findOneBy(['tl_iso_product.id=?'],[$product->pid]);
+                    // If we found a product
+                    if($parent) {
+                        
+                        // Use the Isotope functions to get our generated URL
+                        $arrConfig = $this->getProductConfig($parent);
+                        $href = $parent->generateUrl($arrConfig['jumpTo'], true);
+                        
+                        // Forward the user to our new URL
+                        header("Location: " . $href);
+                        // kill this process so the forward can continue in its' place
+                        die();
+                        
+                    }
+                    
+                }
             }
         }
     }
